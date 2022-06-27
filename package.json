@@ -1,6 +1,7 @@
 {
   "private": true,
   "name": "xin-ui",
+  "homepage": "https://xinumh.github.io/xin-ui",
   "version": "1.0.0",
   "scripts": {
     "start": "dumi dev",

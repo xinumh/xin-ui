@@ -15,4 +15,4 @@ const App: React.FC = () => <Button>1111</Button>;
 export default App;
 ```
 
-<!-- <API /> -->
+<API />

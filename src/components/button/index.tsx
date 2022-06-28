@@ -1,13 +1,5 @@
-import React from 'react';
+import Button from './button';
 
-interface ButtonProps {
-  type?: string;
-}
-
-const Button: React.ReactNode = ({ type }: ButtonProps) => {
-  console.log('type', type);
-
-  return <button>xxx-{type}</button>;
-};
+// export type { ButtonProps } from './button';
 
 export default Button;

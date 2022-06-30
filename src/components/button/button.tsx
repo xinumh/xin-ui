@@ -1,21 +1,34 @@
+import classNames from 'classnames';
 import React from 'react';
+import { ConfigContext } from '../config-provider';
+import { ButtonProps } from './interface';
 
-/**
- * Button properties
- */
-export interface ButtonProps {
-  /**
-   * 可以这样写属性描述
-   * @description       也可以显式加上描述名
-   * @default           支持定义默认值
-   */
-  type?: string; // 支持识别 TypeScript 可选类型为非必选属性
-}
+const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
+  props: ButtonProps,
+  ref,
+) => {
+  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { type = 'default', children, htmlType, className } = props;
+  const buttonRef = (ref as any) || React.createRef<HTMLElement>();
 
-const Button: React.FC<ButtonProps> = ({ type }) => {
-  console.log('type', type);
+  const prefixCls = getPrefixCls?.('btn');
 
-  return <button>xxx-{type}</button>;
+  const classes = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-${type}`]: type,
+    },
+    className,
+  );
+
+  console.log('classes', classes);
+  return (
+    <button className={classes} type={htmlType} ref={buttonRef}>
+      {children}
+    </button>
+  );
 };
+
+const Button = React.forwardRef<unknown, ButtonProps>(InternalButton);
 
 export default Button;

@@ -11,7 +11,7 @@ Demo:
 import React from 'react';
 import { Button } from 'xin-ui';
 
-const App: React.FC = () => <Button>1111</Button>;
+const App: React.FC = () => <Button type="default">1111</Button>;
 export default App;
 ```
 
